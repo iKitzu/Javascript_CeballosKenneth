@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col">
                 <h3>Agregar Nuevo Camper</h3>
-                <form id="form-camper">
+                <form id="formCamper">
                     <div class="col mt-3">
                         <label>TI Camper</label>
                         <input type="number" class="form-control" 
@@ -55,13 +55,21 @@
                                 <option value="Retirado">Retirado</option>
                             </select>
                         </div>
+                        <div class="col mt-3">
+                            <label>Ruta</label>
+                            <select id="rutac" class="form-control">
+                                <option value="Ruta NodeJS">NodeJS</option>
+                                <option value="Ruta Java">Java</option>
+                                <option value="Ruta NetCore">NetCore</option>
+                            </select>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col mt-3 ">
                             <label>Riesgo</label>
                             <select id="riesgoc" class="form-control">
-                                <option value="Si">Si</option>
                                 <option value="No">No</option>
+                                <option value="Si">Si</option>
                             </select>
                         </div>
                     </div>
@@ -86,6 +94,7 @@
                             <th>Teléfono Fijo</th>
                             <th>Estado</th>
                             <th>Riesgo</th>
+                            <th>Ruta</th>
                             <th></th>
                         </tr>
                     </thead>

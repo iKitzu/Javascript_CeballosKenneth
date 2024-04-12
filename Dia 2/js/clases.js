@@ -1,5 +1,5 @@
-export class Gift{
-    constructor(id, nombrec, apellidoc, direccionc, acudientec, telefonocelularc, telefonofijoc, estadoc, riesgoc){
+export class Camper{
+    constructor(id, nombrec, apellidoc, direccionc, acudientec, telefonocelularc, telefonofijoc, estadoc, riesgoc, rutac){
         
         this.id=id;
         this.ti=ti;
@@ -11,6 +11,7 @@ export class Gift{
         this.telefonofijoc=telefonofijoc;
         this.estadoc=estadoc;
         this.riesgoc=riesgoc;
+        this.rutac=rutac;
 
     }
 }
