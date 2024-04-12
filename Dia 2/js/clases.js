@@ -1,15 +1,16 @@
 export class Gift{
-    constructor(id, nombres, apellidos, direccion, acudiente, telefonocelular, telefonofijo, estado){
+    constructor(id, nombrec, apellidoc, direccionc, acudientec, telefonocelularc, telefonofijoc, estadoc, riesgoc){
         
         this.id=id;
-        this.nombres=nombres;
-        this.apellidos=apellidos;
-        this.direccion=direccion;
-        this.acudiente=acudiente;
-        this.telefonocelular=telefonocelular;
-        this.telefonofijo=telefonofijo;
-        this.estado=estado;
-        this.riesgo=riesgo;
+        this.ti=ti;
+        this.nombrec=nombrec;
+        this.apellidoc=apellidoc;
+        this.direccionc=direccionc;
+        this.acudientec=acudientec;
+        this.telefonocelularc=telefonocelularc;
+        this.telefonofijoc=telefonofijoc;
+        this.estadoc=estadoc;
+        this.riesgoc=riesgoc;
 
     }
 }

@@ -1,13 +1,14 @@
 [
     {
-      "id": "1097095601",
-      "nombres": "Kenneth",
-      "apellidos": "Ceballos",
-      "direccion": "x",
-      "acudiente": "Sandra",
-      "telefonocelular": "3214843125",
-      "telefonofijo": "6165119",
-      "estado": "Inscrito",
-      "riesgo": "No"
+      "id": 1,
+      "ti": "1097095601",
+      "nombrec": "Kenneth",
+      "apellidoc": "Ceballos",
+      "direccionc": "x",
+      "acudientec": "Sandra",
+      "telefonocelularc": "3214843125",
+      "telefonofijoc": "6165119",
+      "estadoc": "Inscrito",
+      "riesgoc": "No"
     }
   ]
