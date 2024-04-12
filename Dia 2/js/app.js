@@ -11,7 +11,8 @@ const cargarTabla = () => {
 
         const fila = document.createElement("tr")
 
-        const celdas = `
+        const celdas = 
+        `
         <th>${item.ti}</th>
         <td>${item.nombrec}</td>
         <td>${item.apellidoc}</td>
@@ -45,6 +46,9 @@ const cargarTabla = () => {
 const agregarCamper = (event) => {
     event.preventDefault();
 
+
+    cuerpoTabla
+
 let id = datos.at(-1).id + 1
 let ti = document.querySelector('#ti').value
 let nombrec = document.querySelector('#nombrec').value
@@ -57,14 +61,12 @@ let estadoc = document.querySelector('#estadoc').value
 let riesgoc = document.querySelector('#riesgoc').value
 let rutac = document.querySelector('#rutac').value
     
+datos.push(new Camper(id,ti,nombrec,apellidoc,direccionc,acudientec,telefonofijoc,telefonocelularc,estadoc,riesgoc,rutac));
+document.querySelector('#formCamper').reset()
+cargarTabla();
 
-    datos.push(new Camper(id,ti,nombrec,apellidoc,direccionc,acudientec,telefonofijoc,telefonocelularc,estadoc,riesgoc,rutac))
+};
 
-    cargarTabla()
-
-
-}
-
-cargarTabla()
+cargarTabla();
 
 document.querySelector('#formCamper').addEventListener('submit', agregarCamper)
