@@ -20,15 +20,15 @@ persona.saludar();
 
 // Persona ->
 
-let persona = {
+let persona1 = {
     nombre: "Juan",
     edad: 30,
     genero: "masculino",
     ocupacion: "ingeniero"
 };
 
-console.log(persona.nombre); // Output: Juan
-console.log(persona.edad);   // Output: 30
+console.log(persona1.nombre); // Output: Juan
+console.log(persona1.edad);   // Output: 30
 
 
 // Coche ->
