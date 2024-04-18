@@ -54,6 +54,7 @@ let libro = {
 
 console.log(libro.titulo); // Output: Cien años de soledad
 console.log(libro.autor); // Output: Gabriel García Márquez
+console.log(libro.genero); //Outpor: Realismo Mágico
 
 // Numero ->
 
