@@ -20,5 +20,3 @@ persona1.mostrardetalles();
 
 console.log("\nDetalles de la persona 2:");
 persona2.mostrardetalles();
-
-console.log("======= Ejercicio 2 =======");
