@@ -1,49 +1,78 @@
 console.log("======= Ejercicio 4 =======");
 
-class bankAccount{
-    constructor(accountNumber, initialBal) {
-        this.accountNumber=accountNumber;
-        this.Bal=initialBal;    
+class BankAccount{
+    constructor(numeroCuenta, saldoInicial) {
+        this.numeroCuenta=numeroCuenta;
+        this.saldo=saldoInicial;
     }
+// Depositar dinero en la cuenta :3
 
-    deposit(cant) {
-        if (cant >0){
-            this.saldo += cant;
-            console.log('Se depositaron ${cant} Robux ala cuenta')
+    depositar(cantidad) {
+        if (cantidad >0){
+            this.saldo += cantidad;
+            console.log(`\nSe depositaron ${cantidad} Robux a la cuenta`)
         } else {
-            console.log("La cantidad debe ser mayor que 0 (jaja pobre)")
+            console.log("\nLa cantidad debe ser mayor que 0 (jaja pobre)")
         }
     }
     
-    withdraw(cant){
-        if (cant >0 && cant <= this.Bal) {
-            this.Bal -= cant;
-            console.log("Se retiraron %{cant} Robux de la cuenta")
+    // Retirar los pavos de la cuenta
+
+    retirar(cantidad){
+        if (cantidad >0 && cantidad <= this.saldo) {
+            this.saldo -= cantidad;
+            console.log(`Se retiraron ${cantidad} Robux de la cuenta`)
         }
         else {
-            console.log("No se puede retirar, fondos insuficientes")
+            console.log("\nNo se puede retirar, fondos insuficientes")
         }
     }
 
-    ShowDetails() {
-        console.log('Account Number: ${this.accountNumber}')
-        console.log('Balance Avaliable ${this.Bal} Robux')
+    // Mostrar los detalles del pedazo de cuenta que tenemos B)
+
+    MostrarDetalles() {
+        console.log(`Account Number: ${this.numeroCuenta}`)
+        console.log(`Balance Avaliable ${this.saldo} Robux`)
     }
 }
 
-function obtainCant(message) {
-    let cant= parseFloat(prompt(message));
-    while(isNaN(cant) || cant <= 0) {
-        cant = parseFloat(prompt("Porfavor, ingresa una cantidad valida (mayor que 0"));
+function obtenerCantidad(message) {
+    let cantidad= parseFloat(prompt(message));
+    while(isNaN(cantidad) || cantidad <= 0) {
+        cantidad = parseFloat(prompt("Porfavor, ingresa una cantidad valida (mayor que 0)"));
     }
-    return cant;
+    return cantidad;
 }
 
-const accountNumber=prompt("Ingrese el numero de cuenta:");
-const initialBal=obtainCant("Ingresa el saldo inicial de la cuenta:");
+const numeroCuenta=prompt("Ingrese el numero de cuenta:");
+const saldoInicial=obtenerCantidad("Ingresa el saldo inicial de la cuenta:");
 
-const Account=new bankAccount(accountNumber, initialBal);
+const cuenta=new BankAccount(numeroCuenta, saldoInicial);
+
+// mostrar detalles de la cuenta inicial 
 
 console.log("\nDetalles de la cuenta:")
-Account.ShowDetails();
+cuenta.MostrarDetalles();
 
+/// solicitamos :moai:
+
+const opcion = prompt("¿Que deseas hacer? (1: Depositar, 2: Retirar)");
+
+if (opcion === "1") {
+    
+    // Realizamos el desposito 
+
+    const cantidadDeposito = obtenerCantidad("Ingresa la cantidad a depositar:");
+    cuenta.depositar(cantidadDeposito);
+} else if (opcion === "2") {
+    // Realizamos Retiro
+    const cantidadRetiro = obtenerCantidad("Ingresa la cantidad a retirar:");
+    cuenta.retirar(cantidadRetiro);
+} else {
+    console.log("\nOpcion no valida lol")
+}
+
+// Detalles despues de la operacion 
+
+console.log("\nDetalles Actualziados de la Cuenta:");
+cuenta.MostrarDetalles();
