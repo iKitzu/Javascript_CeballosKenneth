@@ -1,12 +1,72 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Superhero API</title>
+    <!-- Incluye Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Superhero API</h1>
     
+    <!-- Formulario para buscar un superhéroe por nombre -->
+    <form id="searchForm" class="form-inline justify-content-center mb-4">
+        <input type="text" class="form-control mr-2" id="heroName" placeholder="Nombre del superhéroe">
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
+    <!-- Contenedor para mostrar los resultados -->
+    <div id="results" class="text-center"></div>
+</div>
+
+<!-- Incluye jQuery y Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<!-- Script para manejar la búsqueda y mostrar resultados -->
+<script>
+    $(document).ready(function() {
+        $('#searchForm').submit(function(e) {
+            e.preventDefault(); // Evita que se envíe el formulario por defecto
+
+            var heroName = $('#heroName').val();
+
+            // Llama a la API con el nombre del superhéroe
+            $.get(`https://www.superheroapi.com/api.php/your-api-key/search/${heroName}`, function(data) {
+                displayResults(data);
+            });
+        });
+
+        function displayResults(data) {
+            // Limpia el contenedor de resultados
+            $('#results').empty();
+
+            // Verifica si se encontraron resultados
+            if (data.response === 'error') {
+                $('#results').html('<p>No se encontró ningún superhéroe con ese nombre.</p>');
+            } else {
+                var hero = data.results[0]; // Tomamos el primer resultado
+
+                // Construye la tarjeta con la información del superhéroe
+                var heroCard = `
+                    <div class="card" style="width: 18rem; display: inline-block;">
+                        <img src="${hero.image.url}" class="card-img-top" alt="${hero.name}">
+                        <div class="card-body">
+                            <h5 class="card-title">${hero.name}</h5>
+                            <p class="card-text">Nombre completo: ${hero.biography["full-name"]}</p>
+                            <p class="card-text">Publicado por: ${hero.biography.publisher}</p>
+                        </div>
+                    </div>
+                `;
+
+                $('#results').html(heroCard);
+            }
+        }
+    });
+</script>
+
 </body>
-<script src="./script.js"></script>
 </html>
