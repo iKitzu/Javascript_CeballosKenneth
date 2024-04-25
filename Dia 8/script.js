@@ -22,8 +22,7 @@ function displayStar(data) {
   if (data.response === "error") {
     starID.innerHTML = `<p>ERROR! </p> `;
   } 
-
-
+}
 
 
 
