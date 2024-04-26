@@ -41,3 +41,14 @@ main {
     display: flex;
     gap: 20px;
 }
+
+.button {
+    width: 50%;
+    padding: 4%;
+    border-radius: 5px;
+    font-size: 8px;
+    font-weight: 600;
+    background-color: #424242;
+    box-shadow: -2px 5px #222, -4px 6px #000;
+    color: white;
+}
