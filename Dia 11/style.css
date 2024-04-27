@@ -9,13 +9,13 @@
 
 body {
     text-align: center;
-    background: linear-gradient(to bottom, #6ab7f5, #fff);
+    background: linear-gradient(to bottom, rgb(0, 195, 255), #fff);
     min-height: 100vh;
 }
 
 main {
     display: inline-block;
-    margin: 2%;
+    margin: 5%;
     padding: 15px;
     position: relative;
 }
@@ -28,29 +28,28 @@ main {
 .pokemon__image {
     position: absolute;
     bottom: 55%;
-    left: 50%;
-    transform: translate(-63%, 20%);
-    height: 18%;
+    left: 33%;  /* Pq la wea se corre? */
+    height: 17%;
 }
 
 .pokemon__data {
     position: absolute;
     font-weight: 600;
-    color: #aaa;
-    top: 54.5%;
+    color: #a8afaa;
+    top: 55%;
     right: 27%;
     font-size: clamp(8px, 5vw, 25px);
 }
 
 .pokemon__name {
-    color: #3a444d;
+    color: #384047;
     text-transform: capitalize;
 }
 
 .form {
     position: absolute;
     width: 65%;
-    top: 65%;
+    top: 64%;
     left: 13.5%;
 }
 
@@ -84,8 +83,8 @@ main {
     font-size: clamp(8px, 5vw, 1rem);
     font-weight: 600;
     color: white;
-    background-color: #444;
-    box-shadow: -2px 3px 0 #222, -4px 6px 0 #000;
+    background-color: #424242;
+    box-shadow: -1px 5px 0 #212221, -4px 6px 0 #000;
 }
 
 .button:active {
