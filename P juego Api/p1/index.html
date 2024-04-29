@@ -1,77 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Adivina la carta</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    #result {
-      margin-top: 20px;
-      font-weight: bold;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <h1>Adivina si la próxima carta será mayor o menor</h1>
-  <div id="card"></div>
-  <div>
-    <button onclick="guess('higher')">Mayor</button>
-    <button onclick="guess('lower')">Menor</button>
-  </div>
-  <div id="result"></div>
-
-  <script>
-    // Función para cargar una carta aleatoria
-    function loadCard() {
-      fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=1')
-        .then(response => response.json())
-        .then(data => {
-          const card = data.cards[0];
-          document.getElementById('card').innerHTML = `<img src="${card.image}" alt="${card.value} of ${card.suit}">`;
-          currentCardValue = getValue(card.value);
-        });
-    }
-
-    // Función para adivinar si la próxima carta será mayor o menor
-    function guess(prediction) {
-      fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=1')
-        .then(response => response.json())
-        .then(data => {
-          const nextCard = data.cards[0];
-          const nextCardValue = getValue(nextCard.value);
-          const resultElement = document.getElementById('result');
-          let resultMessage = '';
-
-          if ((prediction === 'higher' && nextCardValue > currentCardValue) || 
-              (prediction === 'lower' && nextCardValue < currentCardValue)) {
-            resultMessage = '¡Correcto!';
-          } else {
-            resultMessage = 'Incorrecto';
-          }
-
-          resultElement.textContent = `La próxima carta es ${nextCard.value} de ${nextCard.suit}. ${resultMessage}`;
-          currentCardValue = nextCardValue;
-        });
-    }
-
-    // Función para obtener el valor numérico de una carta
-    function getValue(cardValue) {
-      const values = {
-        'ACE': 14,
-        'KING': 13,
-        'QUEEN': 12,
-        'JACK': 11
-      };
-      return values[cardValue] || parseInt(cardValue);
-    }
-
-    // Inicializar el juego cargando la primera carta
-    let currentCardValue;
-    loadCard();
-  </script>
+    <div class="container">
+        <h1>Blackjack</h1>
+        <div id="player-hand">
+            <h2>Jugador</h2>
+            <div id="player-cards"></div>
+            <p id="player-score"></p>
+        </div>
+        <div id="dealer-hand">
+            <h2>Crupier</h2>
+            <div id="dealer-cards"></div>
+            <p id="dealer-score"></p>
+        </div>
+        <button id="hit-button" onclick="hit()">Pedir carta</button>
+        <button id="stand-button" onclick="stand()">Plantarse</button>
+        <p id="game-result"></p>
+    </div>
+    <script src="./script.js"></script>
 </body>
 </html>
