@@ -6,9 +6,8 @@
     font-style: normal;
 }
 
-body, html {
+body {
     overflow: hidden; /* Para evitar la barra de desplazamiento vertical */
-    text-align: center;
     height: 100%;
     margin: 0;
     padding: 0;
@@ -17,35 +16,35 @@ body, html {
 }
 
 main {
-    display: inline-block;
     margin: 1%;
     padding: 15px;
     position: relative;
 }
 
-.asriel {
-    position: absolute;
-    top: 40vh;
-    left: 50%; /* Ajusta según lo necesites */
-    transform: translateX(-50%);
-    width: 450px;
-}
-
 h1 {
     text-align: center;
-    margin:3%;
+    margin: auto;
     font-size: 40px;
     width: 100%;
     color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
+
 
 .buttons {
     position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     top: 100%;
-    width: 85%;
+    width: 30%;
     display: flex;
-    gap: 20px;
+    gap: 40px;
+    justify-content: center;
 }
+
 
 .button {
     width: 50%;
