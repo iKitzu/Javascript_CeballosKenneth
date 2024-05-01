@@ -53,18 +53,18 @@ body {
     object-fit: contain;
   }
   
-  #restart-btn {
+  #restart-btn, #volver-btn{ 
     margin-top: 20px;
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #007bff;
+    background-color: #4CAF50;
     color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
   }
   
-  #restart-btn:hover {
-    background-color: #0056b3;
+  #restart-btn:hover, #volver-btn:hover {
+    background-color: #418f44;
   }
   

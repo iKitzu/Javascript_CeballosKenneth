@@ -1,3 +1,7 @@
+document.getElementById("volver-btn").onclick = function() {
+  window.location.href = "http://127.0.0.1:5500/Dia%2012/index.html";
+};
+
 document.addEventListener('DOMContentLoaded', function() {
     const gameBoard = document.getElementById('game-board');
     const restartBtn = document.getElementById('restart-btn');
