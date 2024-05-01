@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
       restartGame(numCards);
     });
 
-    startGame(16); // Iniciar el juego con -8- 16  cartas por defecto
+    startGame(20); // Iniciar el juego con -8- 16  cartas por defecto
 
     // Agregar efecto de linterna que sigue el movimiento del ratón
     document.addEventListener('mousemove', (e) => {
