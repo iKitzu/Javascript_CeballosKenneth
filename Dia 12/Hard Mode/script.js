@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
     let flippedCards = [];
     let matchedCards = 0;
 
-    async function fetchCards() {
-      const response = await fetch('https://deckofcardsapi.com/api/deck/new/draw/?count=8');
+    async function fetchCards(numberOfCards) {
+      const response = await fetch(`https://deckofcardsapi.com/api/deck/new/draw/?count=${numberOfCards / 2}`);
       const data = await response.json();
       return data.cards;
     }
@@ -70,15 +70,15 @@ document.addEventListener('DOMContentLoaded', function() {
       flippedCards = [];
     }
 
-    function restartGame() {
+    function restartGame(numCards) {
       matchedCards = 0;
       flippedCards = [];
       gameBoard.innerHTML = '';
-      startGame();
+      startGame(numCards);
     }
 
-    async function startGame() {
-      const cardsData = await fetchCards();
+    async function startGame(numCards) {
+      const cardsData = await fetchCards(numCards);
       const shuffledCards = duplicateAndShuffle(cardsData);
       shuffledCards.forEach(card => {
         const cardElement = createCardElement(card);
@@ -87,9 +87,16 @@ document.addEventListener('DOMContentLoaded', function() {
       });
     }
 
-    restartBtn.addEventListener('click', restartGame);
+    restartBtn.addEventListener('click', function() {
+      const numCards = document.getElementById('num-cards').value;
+      if (numCards % 2 !== 0) {
+        alert('Por favor, ingrese un número par de cartas.');
+        return;
+      }
+      restartGame(numCards);
+    });
 
-    startGame();
+    startGame(16); // Iniciar el juego con -8- 16  cartas por defecto
 
     // Agregar efecto de linterna que sigue el movimiento del ratón
     document.addEventListener('mousemove', (e) => {
