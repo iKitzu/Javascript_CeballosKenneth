@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const gameBoard = document.getElementById('game-board');
     const restartBtn = document.getElementById('restart-btn');
     const linterna = document.querySelector('.linterna');
-    const sizeDegradado = 150;
+    const sizeDegradado = 150;    
 
     let flippedCards = [];
     let matchedCards = 0;
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', function() {
       restartGame(numCards);
     });
 
-    startGame(20); // Iniciar el juego con -8- 16  cartas por defecto
+    startGame(16); // Iniciar el juego con -8- 16  cartas por defecto
 
     // Agregar efecto de linterna que sigue el movimiento del ratón
     document.addEventListener('mousemove', (e) => {
