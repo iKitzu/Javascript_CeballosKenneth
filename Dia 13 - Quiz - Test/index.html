@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <h1>CRUD</h1>
+  <form id="crud-form">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" required><br>
+    <label for="apellido">Apellido:</label>
+    <input type="text" id="apellido" required><br>
+    <label for="ruta">Ruta:</label>
+    <select id="ruta" required>
+      <option value="si">Si</option>
+      <option value="no">No</option>
+    </select><br>
+    <label for="edad">Edad:</label>
+    <input type="number" id="edad" required><br>
+    <button type="submit">Guardar</button>
+  </form>
+
+  <table id="tabla-datos">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Ruta</th>
+        <th>Edad</th>
+      </tr>
+    </thead>
+    <tbody id="datos-guardados">
+      <!-- Aquí se mostrarán los datos guardados -->
+    </tbody>
+  </table>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const form = document.getElementById("crud-form");
+      const tablaDatos = document.getElementById("datos-guardados");
+
+      form.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const nombre = document.getElementById("nombre").value;
+        const apellido = document.getElementById("apellido").value;
+        const ruta = document.getElementById("ruta").value;
+        const edad = document.getElementById("edad").value;
+
+        // Crear una nueva fila y agregar celdas con los datos guardados
+        const nuevaFila = document.createElement("tr");
+        nuevaFila.innerHTML = `
+          <td>${nombre}</td>
+          <td>${apellido}</td>
+          <td>${ruta}</td>
+          <td>${edad}</td>
+        `;
+
+        // Agregar la nueva fila a la tabla de datos
+        tablaDatos.appendChild(nuevaFila);
+
+        // Limpiar el formulario
+        form.reset();
+      });
+    });
+  </script>
+</body>
+</html>
