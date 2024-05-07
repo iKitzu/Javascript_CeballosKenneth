@@ -32,6 +32,7 @@
       <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
 
+    <!-- Tabla de personas guardadas -->
     <table class="table mt-5">
       <thead>
         <tr>
@@ -39,6 +40,7 @@
           <th>Apellido</th>
           <th>Ruta</th>
           <th>Edad</th>
+          <th>Acciones</th>
         </tr>
       </thead>
       <tbody id="datos-guardados">
@@ -46,7 +48,47 @@
       </tbody>
     </table>
   </div>
-  
+
+  <!-- Modal para editar -->
+  <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editarModalLabel">Editar Persona</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="editar-form">
+            <div class="mb-3">
+              <label for="editar-nombre" class="form-label">Nombre:</label>
+              <input type="text" id="editar-nombre" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="editar-apellido" class="form-label">Apellido:</label>
+              <input type="text" id="editar-apellido" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="editar-ruta" class="form-label">Ruta:</label>
+              <select id="editar-ruta" class="form-select" required>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="editar-edad" class="form-label">Edad:</label>
+              <input type="number" id="editar-edad" class="form-control" required>
+            </div>
+            <input type="hidden" id="editar-indice">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="btn-guardar-editar">Guardar Cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="./script.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
