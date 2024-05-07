@@ -15,7 +15,6 @@ const crearUsuario = async () => {
 
     foto.src = datos.picture.medium;
     nombreUsuario.textContent = datos.name.first;
-    nombre.textContent = datos.name.first;
     email.textContent = datos.email;
     birthday.textContent = datos.dob.date;
     address.textContent = datos.location.street.name + ', ' + datos.location.city + ', ' + datos.location.country;
