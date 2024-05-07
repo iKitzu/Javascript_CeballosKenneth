@@ -1,114 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
 </head>
 <body>
-    <div class="container">
-        <div class="mt-5">
-            <div class="col">
+  <div class="container">
+    <h1 class="mt-5">CRUD</h1>
+    <form id="crud-form" class="mt-4">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre:</label>
+        <input type="text" id="nombre" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="apellido" class="form-label">Apellido:</label>
+        <input type="text" id="apellido" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label for="ruta" class="form-label">Ruta:</label>
+        <select id="ruta" class="form-select" required>
+          <option value="si">Si</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="edad" class="form-label">Edad:</label>
+        <input type="number" id="edad" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Guardar</button>
+    </form>
 
-            </div>
-            <div class="col-8">
-                <div class="card">
-                    <div class="card-header">
-                        Mis heroes
-                    </div>
-                    <div class="card-body">
-                        <h5>
-                            Gestión de heroes
-                        </h5>
-                        <div class="container">
-                            <form id="frmDataHero" class="needs-validation" novalidate>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="mb-3">
-                                            <label for="characterName" class="form-label">Nombre Personaje</label>
-                                            <input type="text" name="characterName" id="characterName" required="" class="form-control"></input>    
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="mb-3">
-                                            <label for="actorName" class="form-label">Nombre Actor</label>
-                                            <input type="text" name="actorName" id="actorName" required="" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="mb-3">
-                                            <label for="age" class="form-label">Edad Actor</label>
-                                            <input type="text" name="age" id="age" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="mb-3">
-                                            <label for="cityName" class="form-label">Ubicación</label>
-                                            <input type="text" name="cityName" id="cityName" class="form-control"></input>
-                                            <div id="cityNameAux" class="form-text">
-                                                Nombre de la ciudad de origen
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="mb-3">
-                                            <label for="poster" class="form-label">Poster</label>
-                                            <input type="text" name="poster" id="poster" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col">
-                                        <div class="mb-3">
-                                            <label for="dateAppears" class="form-label">Fecha</label>
-                                            <input type="date" name="dateAppears" id="dateAppears" class="form-control">
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col">
-                                        <div class="mb-3">
-                                            <label for="producer" class="form-label">Productora</label>
-                                            <select name="producer" id="producer" class="form-select">
-                                                <option value="Marvel">Marvel</option>
-                                                <option value="DC">DComics</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row" id="grpSuites">
-                                    <div class="col">
-                                        <div class="card border-primary mb-3" style="max-width: 100%;">
-                                        <div class="card-header">
-                                            Registro de Trajes
-                                        </div>
-                                        <div class="card-body text-primary">
-                                            <h5 class="card-title">Traje del personaje</h5>
-                                            <p>En esta sección podrás registrar los nombres de los trajes usados por el actor en cada 
-                                                una de las peliculas.
-                                            </p>
-                                            <a class="btn btn-warning" href="#" id="addSuite">+</a>
-                                            <div class="" style="width: 100%;">
-                                                <div class="container body-detail"></div>
-                                            </div>
-                                        </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </form>
-                            <button type="button" class="btn btn-dark">Nuevo Heroe</button>
-                            <button type="button" class="btn btn-primary">Guardar Heroe</button>
-                            <button type="button" class="btn btn-danger">Cancelar Heroe</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <!-- Tabla de personas guardadas -->
+    <table class="table mt-5 text-center">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Ruta</th>
+          <th>Edad</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="datos-guardados">
+        <!-- Aquí se mostrarán los datos guardados -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Modal para editar -->
+  <div class="modal fade" id="editarModal" tabindex="-1" aria-labelledby="editarModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editarModalLabel">Editar Persona</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
+        <div class="modal-body">
+          <form id="editar-form">
+            <div class="mb-3">
+              <label for="editar-nombre" class="form-label">Nombre:</label>
+              <input type="text" id="editar-nombre" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="editar-apellido" class="form-label">Apellido:</label>
+              <input type="text" id="editar-apellido" class="form-control" required>
+            </div>
+            <div class="mb-3">
+              <label for="editar-ruta" class="form-label">Ruta:</label>
+              <select id="editar-ruta" class="form-select" required>
+                <option value="si">Si</option>
+                <option value="no">No</option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="editar-edad" class="form-label">Edad:</label>
+              <input type="number" id="editar-edad" class="form-control" required>
+            </div>
+            <input type="hidden" id="editar-indice">
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+          <button type="button" class="btn btn-primary" id="btn-guardar-editar">Guardar Cambios</button>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <script src="./script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-<script src="./script.js"></script>
 </html>
