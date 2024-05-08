@@ -24,4 +24,3 @@ const crearUsuario = async () => {
 
 document.addEventListener('DOMContentLoaded', crearUsuario);
 
-
