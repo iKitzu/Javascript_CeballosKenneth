@@ -1,89 +1,56 @@
-// Works "idk"
-/*
-const foto = document.querySelector('#foto');
-const nombreUsuario = document.querySelector('#nombreUsuario');
-const nombre = document.querySelector('#nombre');
-const email = document.querySelector('#email');
-const birthday = document.querySelector('#birthday');
-const address = document.querySelector('#address');
-const phonenumber = document.querySelector('#phonenumber');
-const password = document.querySelector('#password');
-
-const crearUsuario = async () => {
-    const url = 'https://randomuser.me/api/';
-    const respuesta = await fetch(url);
-    const { results } = await respuesta.json();
-    const datos = results[0];
-
-    foto.src = datos.picture.medium;
-    nombreUsuario.textContent = datos.name.first;
-    email.textContent = datos.email;
-    birthday.textContent = datos.dob.date;
-    address.textContent = datos.location.street.name + ', ' + datos.location.city + ', ' + datos.location.country;
-    phonenumber.textContent = datos.phone;
-    password.textContent = datos.login.password;
-}
-
-document.addEventListener('DOMContentLoaded', crearUsuario);
-*/
-
-//WTF
-
-function user() {
+function Persona(){
     let xhr = new XMLHttpRequest();
     let url = `https://randomuser.me/api/`;
-    xhr.open('GET',url, true);
-    xhr.onreadystatechange=function(){
-        if(this.readyState=== 4 && this.status===200){
-            let response=JSON.parse(this.responseText);
+    xhr.open('GET',url,true);
+    xhr.onreadystatechange = function(){
+        if (this.readyState === 4 && this.status === 200){
+            let response = JSON.parse(this.responseText);
             console.log(response);
-            displayUser(response);
+            displaypersona(response);
         }
-        else if(this.readyState==4) {
+        else if( this.readyState == 4 ){
             console.log('Error:',this.statusText);
         }
     };
     xhr.send();
 }
 
-function displayUser (data) {
-    let info =document.getElementById("Info");
-    if (data.response==="error") {
-        info.innerHTML=`<p>Error: ${data.error}</p>`;
-    }else {
-        info.innerHTML= `
-
-        <!--Maybe one br?-->
-    
+function displaypersona(data){
+    let info = document.getElementById("Info");
+    if (data.response === "error") {
+        info.innerHTML = `<p>Error: ${data.error}</p>`;
+    } else {
+        info.innerHTML = `
+        <br><br>
         <img id="imagen" src="${data.results['0'].picture.large}"> 
         <hr>
         <div id="container_name">
-        <h4 id="descripcion">Hi, My name is</h4>
+        <h4 id="descripcion" style="color: gray;">Hi, My name is</h4>
         <h1 id="nombre">${data.results['0'].name.first} ${data.results['0'].name.last}</h1>
         </div>
-    
+
         <div id="container_emmail">
-        <h4 id="descripcion">My emmail is</h4>
+        <h4 id="descripcion" style="color: gray;">My email is</h4>
         <h1 id="nombre">${data.results['0'].email} </h1>
         </div>
-    
+
         <div id="container_birthday">
-        <h4 id="descripcion">My birthday is</h4>
+        <h4 id="descripcion" style="color: gray;">My birthday is</h4>
         <h1 id="nombre">${data.results['0'].dob.date} </h1>
         </div>
-    
+
         <div id="container_address">
-        <h4 id="descripcion">My address is</h4>
+        <h4 id="descripcion" style="color: gray;">My address is</h4>
         <h1 id="nombre">${data.results['0'].location.street.number} ${data.results['0'].location.street.name} </h1>
         </div>
-    
+
         <div id="container_phone">
-        <h4 id="descripcion">My Phone number is</h4>
+        <h4 id="descripcion" style="color: gray;">My Phone number is</h4>
         <h1 id="nombre">${data.results['0'].phone}  </h1>
         </div>
-    
+
         <div id="container_password">
-        <h4 id="descripcion">My password is</h4>
+        <h4 id="descripcion" style="color: gray;">My password is</h4>
         <h1 id="nombre">${data.results['0'].login.password}  </h1>
         </div>
         `;
