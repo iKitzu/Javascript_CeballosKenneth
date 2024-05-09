@@ -1,3 +1,42 @@
+class CharacterRandomP extends HTMLElement {
+    constructor(){
+        super();
+        this.render();
+    }
+    render(){
+        this.innerHTML = /* Aqui va el html ;) */ `
+        <center>
+        <br><br><br><br><br>
+        <h1>Random User Generator ;)</h1>
+        <div class="container">
+            <div id="container">
+                
+            </div>        
+            
+            <div id="Info">
+                
+            </div>
+            <div class="datos">
+    
+                <button id="btt" onmouseover="nombre()"><i class="fa fa-user" aria-hidden="true"></i></i></i></button>
+                <button id="btt" onmouseover="correo()"><i class="fa fa-envelope" aria-hidden="true"></i></button>
+                <button id="btt" onmouseover="cumpleaños()"><i class="fa fa-birthday-cake" aria-hidden="true"></i></button>
+                <button id="btt" onmouseover="ubicacion()"><i class="fa fa-map-marker" aria-hidden="true"></i></button>
+                <button id="btt" onmouseover="telefono()"><i class="fa fa-phone" aria-hidden="true"></i></button>
+                <button id="btt" onmouseover="contraseña()"><i class="fa fa-lock" aria-hidden="true"></i></button>
+    
+            </div>
+    
+        </div>
+    </center>
+        `;
+    }
+}
+
+customElements.define('persona-r', CharacterRandomP);
+
+
+
 function Persona(){
     let xhr = new XMLHttpRequest();
     let url = `https://randomuser.me/api/`;
